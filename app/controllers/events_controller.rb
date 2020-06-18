@@ -4,4 +4,9 @@ class EventsController < ApplicationController
     events = Event.all
     render json: events
   end
+
+  def destroy
+    event = Event.find(params[:id])
+    event.destroy
+  end
 end
