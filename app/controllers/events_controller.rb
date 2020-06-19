@@ -10,9 +10,14 @@ class EventsController < ApplicationController
     render json: new_event
   end
 
+  def update
+    event = Event.find(params[:id])
+    event.update(event_params)
+  end
+
   def destroy
     event = Event.find(params[:id])
-    event.destroy 
+    event.destroy
   end
 
   private
