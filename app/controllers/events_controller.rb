@@ -25,4 +25,6 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:name, :location, :attendees, :image_url)
   end
+
+  # TODO: define a "before_action" method for finding the event based on params' ID 
 end
