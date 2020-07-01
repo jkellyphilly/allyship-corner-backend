@@ -11,6 +11,7 @@ class EventsController < ApplicationController
   end
 
   def update
+    binding.pry
     event = Event.find(params[:id])
     event.update(event_params)
   end
@@ -25,6 +26,4 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:name, :location, :attendees, :image_url)
   end
-
-  # TODO: define a "before_action" method for finding the event based on params' ID 
 end

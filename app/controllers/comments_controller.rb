@@ -5,6 +5,11 @@ class CommentsController < ApplicationController
     render json: new_comment
   end
 
+  def destroy
+    comment = Comment.find(params[:id])
+    comment.destroy
+  end
+
   private
 
   def comment_params
