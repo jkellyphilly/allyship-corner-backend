@@ -7,7 +7,7 @@ class EventsController < ApplicationController
 
   def create
     new_event = Event.create(event_params)
-    render json: new_event
+    render json: EventSerializer.new(new_event)
   end
 
   def update
@@ -24,6 +24,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :location, :attendees, :image_url)
+    params.require(:event).permit(:name, :location, :attendees, :image_url, :comments)
   end
 end
