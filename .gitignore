@@ -33,3 +33,6 @@
 
 # Ignore my todo list
 my-todo.md
+
+# Ignore application configuration
+/config/application.yml
