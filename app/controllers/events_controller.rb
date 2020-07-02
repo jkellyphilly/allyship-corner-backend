@@ -11,7 +11,6 @@ class EventsController < ApplicationController
   end
 
   def update
-    binding.pry
     event = Event.find(params[:id])
     event.update(event_params)
   end
