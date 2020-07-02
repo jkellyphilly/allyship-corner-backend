@@ -3,9 +3,10 @@ class UsersController < ApplicationController
   def create
     user = User.create(user_params)
     if user.valid?
+      binding.pry
       render json: user
     else
-      render json: { error: 'failed to create user' }, status: :not_acceptable
+      render json: { error: user.errors.full_messages[0] }, status: :not_acceptable
     end
   end
 

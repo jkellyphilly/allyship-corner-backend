@@ -3,4 +3,7 @@ class User < ApplicationRecord
 
   has_many :events
   has_many :comments
+
+  validates :username, presence: true
+  validates :username, uniqueness: true
 end
