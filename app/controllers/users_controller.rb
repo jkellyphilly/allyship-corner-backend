@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
 
   def create
-    binding.pry
     user = User.create(user_params)
-    binding.pry
     if user.valid?
       render json: user
     else
