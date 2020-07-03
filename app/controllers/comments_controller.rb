@@ -1,10 +1,8 @@
 class CommentsController < ApplicationController
 
   def create
-    binding.pry
     new_comment = Comment.create(comment_params)
-    binding.pry
-    render json: new_comment
+    render json: CommentSerializer.new(new_comment)
   end
 
   def destroy
@@ -18,6 +16,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content, :username, :event_id)
+    params.require(:comment).permit(:content, :event_id, :user_id)
   end
 end
