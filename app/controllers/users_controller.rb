@@ -1,7 +1,13 @@
 class UsersController < ApplicationController
 
-  skip_before_action :authorized, only: [:create]
+  skip_before_action :authorized, only: [:create, :index]
 
+  def index
+    users = User.all
+    render json: UserSerializer.new(users)
+  end
+
+  # TODO: make the instance variables plain variables... no need to be instance
   def create
     @user = User.create(user_params)
     if @user.valid?
