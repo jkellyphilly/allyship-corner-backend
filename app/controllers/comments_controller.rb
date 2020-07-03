@@ -6,11 +6,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     comment = Comment.find(params[:id])
-    binding.pry
     comment.destroy
-    binding.pry
   end
 
   private
