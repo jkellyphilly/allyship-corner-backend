@@ -7,7 +7,11 @@ class EventsController < ApplicationController
 
   def create
     new_event = Event.create(event_params)
-    render json: EventSerializer.new(new_event)
+    if new_event.valid?
+      render json: EventSerializer.new(new_event), status: :created
+    else
+      render json: { message: new_event.errors.full_messages[0] }, status: :not_acceptable
+    end
   end
 
   def update
