@@ -8,7 +8,7 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     # TODO: update this to only include the origins I want to allow
-    origins '*'
+    origins 'allyship-corner-api.herokuapp.com'
 
     resource '*',
       headers: :any,
