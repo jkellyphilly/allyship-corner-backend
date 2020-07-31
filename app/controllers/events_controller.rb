@@ -21,7 +21,10 @@ class EventsController < ApplicationController
 
   def destroy
     event = Event.find(params[:id])
+
+    # Destroy each comment associated with the event
     event.comments.each {|c| c.destroy}
+    
     event.destroy
   end
 
