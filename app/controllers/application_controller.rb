@@ -4,7 +4,8 @@ class ApplicationController < ActionController::API
 
   def encode_token(payload)
     puts payload
-    JWT.encode(payload, ENV["jwt_secret"])
+    token = JWT.encode(payload, ENV["jwt_secret"])
+    puts "Token is: #{token}"
   end
 
   def auth_header
