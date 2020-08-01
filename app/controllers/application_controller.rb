@@ -3,10 +3,7 @@ class ApplicationController < ActionController::API
   before_action :authorized
 
   def encode_token(payload)
-    puts "Payload is: #{payload}"
-    puts "Secret is: #{ENV["JWT_SECRET"]}"
     token = JWT.encode(payload, ENV["JWT_SECRET"])
-    puts "Token is: #{token}"
   end
 
   def auth_header
