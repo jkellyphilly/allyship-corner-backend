@@ -1,24 +1,37 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to the Allyship Corner backend repo! This serves as a Rails API for the Allyship Corner JavaScript application, the repository for which can be found here: https://github.com/jkellyphilly/allyship-corner.
 
-Things you may want to cover:
+This application is intended to be a community that provides users the ability to find events to support oppressed minority groups. Users can create new events, express their interest in current events, and comment on any event to bolster community relations.
 
-* Ruby version
+This was built with Ruby v2.6.1.
 
-* System dependencies
+## Installation
 
-* Configuration
+Fork and clone this repository down to your local environment, then run 'bundle install' to install all required gems from the Gemfile. Please note that the allyship-corner-backend folder is a sub-repository, and can be found here: https://github.com/jkellyphilly/allyship-corner-backend.
 
-* Database creation
+From your command line, navigate into the allyship-corner-backend folder and run `bundle install`. Upon successful installation, run `rails s` to start up the server.
 
-* Database initialization
+From your command line, navigate into the allyship-corner-frontend folder and run `open index.html`. If you are using Google Chrome (recommended), open your developer console with CMD+OPTION+J. If you don't see any errors, then the first fetch request has been successful and the application is up and running.
 
-* How to run the test suite
+## Usage
 
-* Services (job queues, cache servers, search engines, etc.)
+Sign up with a unique username (that doesn't yet exist in our database) and password, then watch as all events and corresponding comments are rendered on the page post-server call. Create an event, comment on existing events, or click on the "I'm interested!" button to update the attendee count and signal your interest.
 
-* Deployment instructions
+For a more thorough explanation of how to use this app, check out this video: https://www.youtube.com/watch?v=Gcph4zjZFCQ&t=3s
 
-* ...
+### Testing
+
+A testing suite is not yet configured for the backend.
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/jkellyphilly/allyship-corner-backend. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+## License
+
+This application is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Code of Conduct
+
+Everyone interacting in The Allyship Corner project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/jkellyphilly/allyship-corner/blob/master/CODE_OF_CONDUCT.md).
