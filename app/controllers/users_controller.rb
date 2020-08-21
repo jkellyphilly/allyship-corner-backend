@@ -9,8 +9,13 @@ class UsersController < ApplicationController
 
   def create
     user = User.create(user_params)
+
+    # If the created user is authenticated, encode a token of the user's ID
+    # to send along with in the response which will be sent back to each
+    # request to the server in subsequent calls during this session.
+    # Otherwise, send the first error message back with the response in the
+    # key of :message
     if user.valid?
-      puts user.id
       token = encode_token(user_id: user.id)
       render json: { user: UserSerializer.new(user), jwt: token }, status: :created
     else

@@ -5,6 +5,8 @@ class EventsController < ApplicationController
     render json: EventSerializer.new(events)
   end
 
+  # If the new event is not valid, send the first error message
+  # back in the response with a key of :message
   def create
     new_event = Event.create(event_params)
     if new_event.valid?
@@ -21,7 +23,11 @@ class EventsController < ApplicationController
 
   def destroy
     event = Event.find(params[:id])
+
+    # Before destroying this event's record, also
+    # destroy all of the comments associated with it
     event.comments.each {|c| c.destroy}
+
     event.destroy
   end
 
