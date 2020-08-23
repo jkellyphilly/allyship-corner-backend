@@ -4,5 +4,5 @@ class Event < ApplicationRecord
   has_many :event_attendees
   has_many :attendees, through: :event_attendees
 
-  validates :name, :location, :image_url, :attendees, presence: true
+  validates :name, :location, :image_url, presence: true
 end
