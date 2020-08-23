@@ -10,6 +10,12 @@ class EventsController < ApplicationController
   def create
     new_event = Event.create(event_params)
     if new_event.valid?
+      # Find the Attendee instance that belongs to the user who created
+      # the event and add that Attendee to the event's attendees
+      current_attendee = Attendee.find_by(user_id: params[:event][:user_id])
+      new_event.attendees << current_attendee
+      new_event.save
+
       render json: EventSerializer.new(new_event), status: :created
     else
       render json: { message: new_event.errors.full_messages[0] }, status: :not_acceptable
@@ -34,6 +40,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :location, :attendees, :image_url, :user_id, :comments)
+    params.require(:event).permit(:name, :location, :image_url, :user_id, :comments)
   end
 end
