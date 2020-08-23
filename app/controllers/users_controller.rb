@@ -17,6 +17,9 @@ class UsersController < ApplicationController
     # key of :message
     if user.valid?
       token = encode_token(user_id: user.id)
+      # Create an Attendee instance that will reflect
+      # this user's attendances at events
+      Attendee.create(user_id: user.id)
       render json: { user: UserSerializer.new(user), jwt: token }, status: :created
     else
       render json: { message: user.errors.full_messages[0] }, status: :not_acceptable
