@@ -24,7 +24,18 @@ class EventsController < ApplicationController
 
   def update
     event = Event.find(params[:id])
-    event.update(event_params)
+    attendee = Attendee.find(params[:attendee_id])
+
+    # Either add the attendee to the event's attendees
+    # or remove this attendee, determined by :is_adding param
+    if params[:is_adding]
+      event.attendees << attendee
+    else
+      event.attendees.delete(attendee)
+    end
+    event.save
+
+    render json: EventSerializer.new(event)
   end
 
   def destroy
