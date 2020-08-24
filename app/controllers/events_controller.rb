@@ -23,6 +23,8 @@ class EventsController < ApplicationController
   end
 
   def update
+    # Get the event we're updating and the Attendee instance
+    # that we're adding to/detracting from the event
     event = Event.find(params[:id])
     attendee = Attendee.find_by(user_id: params[:attendee_id])
 
